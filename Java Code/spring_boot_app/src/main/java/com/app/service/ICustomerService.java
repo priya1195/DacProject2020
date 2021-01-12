@@ -20,4 +20,5 @@ public interface ICustomerService {
 
 	// delete existing Customer details
 	void deleteCustomerDetails(int id);
+	
 }

@@ -15,26 +15,26 @@ import com.app.pojos.Customer;
 public class CustomerServiceImpl implements ICustomerService {
 	// dependency
 	@Autowired
-	private ICustomerDao dao;
-
+	private ICustomerDao customerDao;
+	
 	@Override
 	public List<Customer> getAllCustomers() {
-		return dao.findAll();
+		return customerDao.findAll();
 	}
 
 	@Override
 	public Customer addcustomerDetails(Customer transientPOJO) {
-		return dao.save(transientPOJO);
+		return customerDao.save(transientPOJO);
 	}
 
 	@Override
 	public Optional<Customer> getCustomerDetails(int id) {
-		return dao.findById(id);
+		return customerDao.findById(id);
 	}
 
 	@Override
 	public Customer updateCustomerDetails(int customertId, Customer c1) {
-		Optional<Customer> customer = dao.findById(customertId);
+		Optional<Customer> customer = customerDao.findById(customertId);
 		Customer existingCustomer = customer.get();
 		existingCustomer.setName(c1.getName());
 		existingCustomer.setAddress(c1.getAddress());
@@ -44,8 +44,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public void deleteCustomerDetails(int id) {
-		dao.deleteById(id);
-
+		customerDao.deleteById(id);
 	}
 
 }

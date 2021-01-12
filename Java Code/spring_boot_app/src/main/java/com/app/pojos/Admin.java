@@ -2,6 +2,8 @@ package com.app.pojos;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "admin")
 public class Admin {
 	//Admin_id,Admin_name,Admin_email,Admin_address
 	
