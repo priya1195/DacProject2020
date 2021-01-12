@@ -45,7 +45,7 @@ public class Food {
 	 * @OneToOne(mappedBy = "food", cascade = CascadeType.ALL) private CartItems
 	 * cartItem;
 	 */
-	
+
 	public Food() {
 		super();
 	}

@@ -45,8 +45,6 @@ public class CustomerController {
 		System.out.println("in add customer " + c1);
 		try {
 			Customer newCustomer = service.addcustomerDetails(c1);
-			// Cart cartDetails = cartService.addcartDetails(cart1);
-			// newCustomer.setCart(cartDetails);
 			return new ResponseEntity<>(newCustomer, HttpStatus.OK);
 
 		} catch (RuntimeException e) {
@@ -80,7 +78,7 @@ public class CustomerController {
 	}
 
 	// delete Customer details
-	@DeleteMapping("/{CustomerId}")
+	@DeleteMapping("/{customerId}")
 	public ResponseEntity<?> deleteCustomerDetails(@PathVariable int customerId) {
 		System.out.println("in delete Customer " + customerId);
 		Optional<Customer> customer = service.getCustomerDetails(customerId);
@@ -90,4 +88,5 @@ public class CustomerController {
 		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+	
 }

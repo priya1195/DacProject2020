@@ -1,12 +1,15 @@
 package com.app.pojos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "cart")
@@ -16,7 +19,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(insertable = false, updatable = false)
-	private Integer cart_id;
+	private Integer cartId;
 
 	private double totalAmt;
 
@@ -24,19 +27,21 @@ public class Cart {
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
 
-	@OneToMany(mappedBy = "cart",cascade = CascadeType.ALL) 
-	private List<CartItems> cartItems = new ArrayList<>();
-	
+	/*
+	 * @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL) private
+	 * List<CartItems> cartItems = new ArrayList<>();
+	 */
+
 	public Cart() {
 		super();
 	}
 
-	public Integer getCart_id() {
-		return cart_id;
+	public Integer getCartId() {
+		return cartId;
 	}
 
-	public void setCart_id(Integer cart_id) {
-		this.cart_id = cart_id;
+	public void setCartId(Integer cartId) {
+		this.cartId = cartId;
 	}
 
 	public double getTotalAmt() {
@@ -46,7 +51,8 @@ public class Cart {
 	public void setTotalAmt(double totalAmt) {
 		this.totalAmt = totalAmt;
 	}
-  @JsonBackReference
+
+	@JsonBackReference
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -54,19 +60,18 @@ public class Cart {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	
-	@JsonManagedReference
-	public List<CartItems> getCartItems() {
-		return cartItems;
-	}
-
-	public void setCartItems(List<CartItems> cartItems) {
-		this.cartItems = cartItems;
-	}
 
 	@Override
 	public String toString() {
-		return "Cart [cart_id=" + cart_id + ", totalAmt=" + totalAmt + "]";
+		return "Cart [cartId=" + cartId + ", totalAmt=" + totalAmt + ", customer=" + customer + "]";
 	}
+
+	/*
+	 * @JsonManagedReference public List<CartItems> getCartItems() { return
+	 * cartItems; }
+	 * 
+	 * public void setCartItems(List<CartItems> cartItems) { this.cartItems =
+	 * cartItems; }
+	 */
 
 }
