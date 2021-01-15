@@ -39,6 +39,7 @@ public class FoodServiceImpl implements IFoodService {
 		existingfood.setName(food1.getName());
 		existingfood.setPrice(food1.getPrice());
 		existingfood.setCategory(food1.getCategory());
+		existingfood.setImagePath(food1.getImagePath());
 		return existingfood;
 	}
 

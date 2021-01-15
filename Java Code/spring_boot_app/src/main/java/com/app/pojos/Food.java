@@ -35,8 +35,12 @@ public class Food {
 
 	/*
 	 * @Lob private byte[] image;
+	 * 
+	 * @Column(length = 30) private String imageContentType;
 	 */
-
+	@Column(length = 30)
+	private String imagePath;
+	
 	@ManyToOne
 	@JoinColumn(name = "restaurent_id", nullable = false)
 	private Restaurent selectedRestaurent;
@@ -96,16 +100,38 @@ public class Food {
 		this.selectedRestaurent = selectedRestaurent;
 	}
 
+	
 	/*
 	 * @JsonManagedReference public CartItems getCartItem() { return cartItem; }
 	 * 
 	 * public void setCartItem(CartItems cartItem) { this.cartItem = cartItem; }
 	 */
 
+	/*
+	 * public byte[] getImage() { return image; }
+	 * 
+	 * public void setImage(byte[] image) { this.image = image; }
+	 * 
+	 * public String getImageContentType() { return imageContentType; }
+	 * 
+	 * public void setImageContentType(String imageContentType) {
+	 * this.imageContentType = imageContentType; }
+	 */
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
 	@Override
 	public String toString() {
-		return "Food [fid=" + fid + ", name=" + name + ", price=" + price + ", category=" + category
-				+ ", selectedRestaurent=" + selectedRestaurent + "]";
+		return "Food [fid=" + fid + ", name=" + name + ", price=" + price + ", category=" + category + ", imagePath="
+				+ imagePath + ", selectedRestaurent=" + selectedRestaurent + "]";
 	}
+
+	
 
 }
