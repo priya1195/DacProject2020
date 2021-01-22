@@ -20,4 +20,6 @@ public interface IRestaurentService {
 
 	// delete existing Restaurent details
 	void deleteRestaurentDetails(int id);
+	
+	Restaurent getRestaurentByName(String name);
 }

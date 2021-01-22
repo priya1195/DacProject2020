@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.app.service.IRestaurentService;
 
 @RestController
 @RequestMapping("/restaurents")
+@CrossOrigin
 public class RestaurentController {
 	// dependency
 	@Autowired
@@ -53,7 +55,7 @@ public class RestaurentController {
 		}
 	}
 
-	// get specific Restaurent details
+	// get specific Restaurent details By Id
 	@GetMapping("/{restaurentid}")
 	public ResponseEntity<?> getRestaurentDetails(@PathVariable int restaurentid) {
 		System.out.println("in get Restaurent details " + restaurentid);
@@ -88,4 +90,15 @@ public class RestaurentController {
 		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+	
+	// get specific Restaurent details By Name
+		@GetMapping("/name/{restaurentName}")
+		public ResponseEntity<?> getRestaurentDetailsByName(@PathVariable String restaurentName) {
+			System.out.println("in get Restaurent details by name " + restaurentName);
+			Restaurent restaurentByName = service.getRestaurentByName(restaurentName);
+			if(restaurentByName==null) {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			return new ResponseEntity<>(restaurentByName, HttpStatus.OK);
+		}
 }

@@ -24,7 +24,7 @@ public class Cart {
 	private double totalAmt;
 
 	@OneToOne
-	@JoinColumn(name = "customer_id", nullable = false)
+	@JoinColumn(name = "customer_id",nullable = false)
 	private Customer customer;
 
 	/*

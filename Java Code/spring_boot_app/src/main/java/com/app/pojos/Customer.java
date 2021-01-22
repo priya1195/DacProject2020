@@ -2,6 +2,7 @@ package com.app.pojos;
 
 import javax.persistence.*;
 //import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -19,6 +20,7 @@ public class Customer {
 	@Column(name = "customer_name", length = 30)
 	private String name;
 
+	@NotBlank
 	@Column(name = "customer_email", length = 30, unique = true) // unique constraint
 	private String email;
 
