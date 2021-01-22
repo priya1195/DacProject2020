@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.pojos.Customer;
+import com.app.service.ICartService;
 import com.app.service.ICustomerService;
 
 @RestController
@@ -26,6 +27,8 @@ public class CustomerController {
 	// dependency
 	@Autowired
 	private ICustomerService service;
+	@Autowired
+	private ICartService cartservice;
 
 	public CustomerController() {
 		System.out.println("Constructor of customerController");

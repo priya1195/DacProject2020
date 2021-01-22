@@ -42,7 +42,7 @@ public class Food {
 	private String imagePath;
 	
 	@ManyToOne
-	@JoinColumn(name = "restaurent_id", nullable = false)
+	@JoinColumn(name = "restaurent_id")
 	private Restaurent selectedRestaurent;
 
 	/*

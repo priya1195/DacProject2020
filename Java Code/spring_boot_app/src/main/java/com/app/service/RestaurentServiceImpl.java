@@ -48,5 +48,10 @@ public class RestaurentServiceImpl implements IRestaurentService {
 		dao.deleteById(id);
 	}
 
+	@Override
+	public Restaurent getRestaurentByName(String name) {
+		return dao.findByName(name);
+	}
+
 	
 }

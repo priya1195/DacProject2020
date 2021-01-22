@@ -3,6 +3,7 @@ package com.app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import com.app.service.ICartService;
 
 @RestController
 @RequestMapping("/cart")
+@CrossOrigin
 public class CartController {
 	// dependency
 		@Autowired
@@ -29,7 +31,7 @@ public class CartController {
 			System.out.println("assign cart  "+c1 +" "+c1.getCustomer());
 			Cart cart = service.addcartDetails(c1);
 			if(cart != null)
-				return new ResponseEntity<>(HttpStatus.OK);
+				return new ResponseEntity<>(cart,HttpStatus.OK);
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
