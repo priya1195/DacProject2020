@@ -32,8 +32,8 @@ public class CartItems {
 	@Column(name = "food_qty")
 	private int quantity;
 
-	@Column(name="food_unitPrice")
-	private double unitPrice;
+	@Column(name="food_Price")
+	private double price;
 	
 	public CartItems() {
 		super();
@@ -74,12 +74,12 @@ public class CartItems {
 	}
 
 	
-	public double getUnitPrice() {
-		return unitPrice;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
+	public void setPrice(double unitPrice) {
+		this.price = unitPrice;
 	}
 
 	@Override

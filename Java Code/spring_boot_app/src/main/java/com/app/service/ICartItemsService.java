@@ -1,8 +1,10 @@
 package com.app.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import com.app.pojos.Cart;
 import com.app.pojos.CartItems;
 
 public interface ICartItemsService {
@@ -21,5 +23,5 @@ public interface ICartItemsService {
 	// delete existing CartItem details
 	void deleteCartItemDetails(int id);
 	
-
+	Collection<CartItems> findByCart(Cart cart);
 }

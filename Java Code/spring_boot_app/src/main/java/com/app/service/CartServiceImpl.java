@@ -40,7 +40,6 @@ public class CartServiceImpl implements ICartService {
 		Optional<Cart> cart = dao.findById(cartId);
 		Cart existingCart = cart.get();
 		existingCart.setCustomer(c1.getCustomer());
-		existingCart.setTotalAmt(c1.getTotalAmt());
 		return existingCart;
 	}
 

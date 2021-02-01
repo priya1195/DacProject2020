@@ -47,4 +47,10 @@ public class CustomerServiceImpl implements ICustomerService {
 		customerDao.deleteById(id);
 	}
 
+	@Override
+	public Customer fetchCustomerByEmail(String email) {
+		return customerDao.findByEmail(email);
+	}
+
+	
 }

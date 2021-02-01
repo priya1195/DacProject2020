@@ -1,6 +1,7 @@
 package com.app.pojos;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -13,6 +14,7 @@ public class User {
 	@Column(name = "user_id", insertable = false, updatable = false)
 	private Integer id;
 	
+	@Email
 	@NotBlank
 	@Column(name = "user_email", length = 30, unique = true)
 	private String email;
@@ -24,6 +26,7 @@ public class User {
 	@Column(name = "user_name", length = 30)
 	private String name;
 	
+	@NotBlank
 	@Column(name = "user_addr", length = 30)
 	private String address;
 	

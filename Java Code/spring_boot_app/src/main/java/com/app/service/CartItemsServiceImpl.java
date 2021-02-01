@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ICartItemsDao;
+import com.app.pojos.Cart;
 import com.app.pojos.CartItems;
 
 @Service
@@ -40,6 +42,7 @@ public class CartItemsServiceImpl implements ICartItemsService {
 		cartItems.setQuantity(c1.getQuantity());
 		cartItems.setFood(c1.getFood());
 		cartItems.setCart(c1.getCart());
+		cartItems.setPrice(c1.getPrice());
 		return null;
 	}
 
@@ -47,6 +50,11 @@ public class CartItemsServiceImpl implements ICartItemsService {
 	public void deleteCartItemDetails(int id) {
 		dao.deleteById(id);
 
+	}
+
+	@Override
+	public Collection<CartItems> findByCart(Cart cart) {
+		return dao.findByCart(cart);
 	}
 
 

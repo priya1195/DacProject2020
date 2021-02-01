@@ -94,4 +94,15 @@ public class CustomerController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
+	@GetMapping("/email/{emailId}")
+	public ResponseEntity<?> login(@PathVariable String emailId){
+		System.out.println("in get Customer details by email " + emailId);
+		
+		Customer	customerObj=service.fetchCustomerByEmail(emailId);
+		
+		if(customerObj==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(customerObj, HttpStatus.OK);
+	}
 }

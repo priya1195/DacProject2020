@@ -1,11 +1,14 @@
 package com.app.controller;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.pojos.Cart;
 import com.app.pojos.CartItems;
 import com.app.service.ICartItemsService;
 
 @RestController
 @RequestMapping("/cartitems")
+@CrossOrigin
 public class CartItemsController {
 	// dependency
 	@Autowired
@@ -40,7 +45,7 @@ public class CartItemsController {
 	}
 
 	
-	@PostMapping
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> addCartItems(@RequestBody CartItems c1) {
 		System.out.println("in add CartItems " + c1);					
 			try {
@@ -90,4 +95,14 @@ public class CartItemsController {
 		}
 		
 		
+		/*
+		 * @PostMapping("/cartId") public ResponseEntity<?> login(@RequestBody Cart
+		 * cart){
+		 * 
+		 * Collection<CartItems> findByCart = service.findByCart(cart);
+		 * 
+		 * if(findByCart.isEmpty()) { return new
+		 * ResponseEntity<>(HttpStatus.NO_CONTENT); } return new
+		 * ResponseEntity<>(findByCart, HttpStatus.OK); }
+		 */
 }

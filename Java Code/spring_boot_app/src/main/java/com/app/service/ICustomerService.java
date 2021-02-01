@@ -21,4 +21,5 @@ public interface ICustomerService {
 	// delete existing Customer details
 	void deleteCustomerDetails(int id);
 	
+	Customer fetchCustomerByEmail(String email);
 }
