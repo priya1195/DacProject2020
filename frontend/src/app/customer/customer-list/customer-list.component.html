@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Foodi Zone</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+             <li><a routerLink="/admin-food-list" class="nav-link">Food List</a></li>
+             <li><a routerLink="/customer-list" class="nav-link">Customer List</a></li>
+            <li><a routerLink="/login" class="nav-link">Logout</a></li>
+       </ul>
+    </div>
+  </nav>
+  
+  <div class="card" id="card-div">
+    <div class="card-header">
+       <!-- <button class="btn btn-success btn-md float-right">Add Food</button>  -->
+      <h2>Customer List</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers| async; let index = index"  >
+            <td>{{index + 1}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.address}}</td>
+            <td>
+              <button (click)="updateCustomer(customer.cid)" class="btn btn-primary" style="margin-left: 10px">Edit</button>
+              <button (click)="deleteCustomer(customer.cid)" class="btn btn-primary" style="margin-left: 10px">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

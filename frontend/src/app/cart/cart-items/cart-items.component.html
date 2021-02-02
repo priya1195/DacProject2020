@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Foodi Zone</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/home" class="nav-link"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <!-- <li ><a routerLink="/orderhistory" class="nav-link">My Orders</a></li> -->
+      <li><a routerLink="/cart" class="nav-link">Cart</a></li>
+      <li><a routerLink="/login" class="nav-link">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="card" id="card-div">
+    <div class="card-header">
+      <!-- <button (click)="addProduct()" class="btn btn-success btn-md float-right">Add</button> -->
+      <h2>Cart</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cartItem of cartItems; let index = index"  >
+            <td>{{index + 1}}</td>
+           <td>
+              <img class="food-image" src="{{cartItem.food['imagePath']}}">
+            </td> 
+            <td>{{cartItem.food['name']}}</td>
+            <td>
+                <button (click)="updateValue(+1,cartItem)">+</button>
+                {{cartItem.quantity}}
+                <button (click)="updateValue(-1,cartItem)">-</button>
+                                 
+            </td>
+            <td>{{cartItem.price}}</td>        
+            <td>
+              <button (click)="removeFromCart(cartItem.id)" class="btn btn-primary" style="margin-left: 10px">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+        <h3>Total Amount = {{totalAmount}}</h3>
+    </div>
+    
+    <a style="margin-left: 10px;" routerLink="/food" class="btn btn-danger">Cancel</a>
+  </div>

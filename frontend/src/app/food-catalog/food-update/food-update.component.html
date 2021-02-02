@@ -1,0 +1,37 @@
+<h3>Update Food Details</h3>
+  <div  style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Food Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="food.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Food Price</label>
+      <input type="text" class="form-control" id="price" required [(ngModel)]="food.price" name="price">
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <div>
+            <select name = "category"   class="form-control" id = "category" [(ngModel)]="food.category">
+                <option value = "VEG">VEG</option>
+                <option value = "NONVEG">NONVEG</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imagePath">ImagePath</label>
+        <input  class="form-control" name="imagePath" [(ngModel)]="food.imagePath" required>
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="selectedRestaurent">Restaurent Id</label>
+        <input  class="form-control" name="selectedRestaurent" [(ngModel)]="restauent.rid" required>
+    </div> -->
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a style="margin-left: 10px;" routerLink="/admin-food-list" class="btn btn-danger">Cancel</a>
+  </form>
+</div>

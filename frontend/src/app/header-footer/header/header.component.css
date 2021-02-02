@@ -1,0 +1,17 @@
+.container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-image: url("/assets/images/food5.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    color: white;
+    width: auto;
+
+}
+
+img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 500px;
+    height: 500px;
+}

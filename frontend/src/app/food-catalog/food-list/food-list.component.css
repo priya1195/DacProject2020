@@ -1,0 +1,11 @@
+.food-image {
+    height: 70px;
+    transition: 0.5s;
+  }
+  .food-image:hover {
+    transform: scale(2);
+  }
+  #card-div{
+    margin-right: auto;
+    margin-left: auto;
+  }
